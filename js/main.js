@@ -1,4 +1,4 @@
-// ============ 山湖之间 · 交互脚本 ============
+// ============ SIGNAL DEEP · 交互脚本 ============
 (function () {
   "use strict";
 
@@ -12,12 +12,19 @@
 
   // ---- 语言切换 ----
   var langToggle = document.getElementById("langToggle");
+  function afterLangChange() {
+    // 中英文字数差异会改变页面高度，通知深海引擎重算分段坐标
+    setTimeout(function () {
+      if (typeof window.SEA_RELAYOUT === "function") window.SEA_RELAYOUT();
+    }, 120);
+  }
   langToggle.addEventListener("click", function () {
     var toEn = !document.body.classList.contains("en");
     document.body.classList.toggle("en", toEn);
     document.documentElement.lang = toEn ? "en" : "zh-CN";
     langToggle.textContent = toEn ? "中" : "EN";
     try { localStorage.setItem("lemon-lang", toEn ? "en" : "zh"); } catch (e) {}
+    afterLangChange();
   });
   try {
     if (localStorage.getItem("lemon-lang") === "en") {
@@ -31,10 +38,14 @@
   var burger = document.getElementById("navBurger");
   var navLinks = document.getElementById("navLinks");
   burger.addEventListener("click", function () {
+    burger.classList.toggle("open");
     navLinks.classList.toggle("open");
   });
   navLinks.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") navLinks.classList.remove("open");
+    if (e.target.tagName === "A") {
+      navLinks.classList.remove("open");
+      burger.classList.remove("open");
+    }
   });
 
   // ---- Scrollspy：高亮当前章节 ----
@@ -65,46 +76,6 @@
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(function (el) { revealObserver.observe(el); });
 
-  // ---- 数字计数动画 ----
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute("data-count"), 10);
-    var duration = 1400;
-    var start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased);
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var statObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll("[data-count]").forEach(animateCount);
-        statObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  var statsEl = document.getElementById("stats");
-  if (statsEl) statObserver.observe(statsEl);
-
-  // ---- 实习 Tab 切换 ----
-  var tabBtns = document.querySelectorAll(".tab-btn");
-  tabBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      tabBtns.forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      document.querySelectorAll(".tab-panel").forEach(function (p) { p.classList.remove("active"); });
-      var panel = document.getElementById("tab-" + btn.getAttribute("data-tab"));
-      if (panel) {
-        panel.classList.add("active");
-        panel.querySelectorAll(".reveal:not(.visible)").forEach(function (el) { el.classList.add("visible"); });
-      }
-    });
-  });
-
   // ---- 奖项筛选 ----
   var filterBtns = document.querySelectorAll(".filter-btn");
   var awards = document.querySelectorAll("#awardsGrid > div");
@@ -121,6 +92,5 @@
       applyFilter(btn.getAttribute("data-filter"));
     });
   });
-  // 初始状态：全部显示
   applyFilter("all");
 })();

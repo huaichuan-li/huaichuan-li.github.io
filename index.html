@@ -3,113 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>lemon.li · 个人网站</title>
-<meta name="description" content="lemon.li · 上海交通大学多模态大模型方向研究生 / 「研途信使」创始人">
+<title>lemon.li · 深海信号 SIGNAL DEEP</title>
+<meta name="description" content="lemon.li · 上海交通大学多模态大模型方向研究生 · 具身智能 · 「研途信使」创始人 · 深海信号站">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="lemon.li · SIGNAL DEEP">
+<meta property="og:description" content="上海交通大学 · 多模态大模型 × 具身智能 × 研途信使创始人">
+<meta property="og:image" content="https://huaichuan-li.github.io/assets/portrait-crop.jpg">
+<meta name="theme-color" content="#041712">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="sea">
+
+<div class="sea-bg" aria-hidden="true"></div>
+<div class="depth-meter" id="depthMeter" aria-hidden="true"><span class="dm-line"></span><span class="dm-val" id="depthVal">0 m</span><span class="dm-line"></span></div>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">LEMON<span class="nav-dot"></span></a>
+    <a href="#hero" class="nav-logo">LEMON<span class="nav-dot"></span>LI</a>
     <button class="nav-burger" id="navBurger" aria-label="菜单"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#intern" data-i18n="nav-intern">实习</a></li>
-      <li><a href="#research" data-i18n="nav-research">研究</a></li>
-      <li><a href="#venture" data-i18n="nav-venture">创业</a></li>
-      <li><a href="#life" data-i18n="nav-life">生活</a></li>
-      <li><a href="#awards" data-i18n="nav-awards">荣誉</a></li>
-      <li><a href="#contact" data-i18n="nav-contact">联系</a></li>
+      <li><a href="#about"><span class="zh">关于</span><span class="en">about</span></a></li>
+      <li><a href="#research"><span class="zh">研究</span><span class="en">research</span></a></li>
+      <li><a href="#intern"><span class="zh">实习</span><span class="en">intern</span></a></li>
+      <li><a href="#venture"><span class="zh">创业</span><span class="en">venture</span></a></li>
+      <li><a href="#honors"><span class="zh">荣誉</span><span class="en">honors</span></a></li>
+      <li><a href="life.html"><span class="zh">生活 ↗</span><span class="en">life ↗</span></a></li>
+      <li><a href="#contact"><span class="zh">联系</span><span class="en">contact</span></a></li>
       <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="hero">
-  <img class="hero-bg" src="assets/lemon.jpg" alt="lemon.li 在高原湖畔">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-kicker reveal">RESEARCHER × FOUNDER</p>
-    <h1 class="reveal">lemon.li</h1>
-    <p class="hero-tagline reveal"><span class="zh">上海交大 · 多模态大模型 · 在山湖与实验室之间奔跑</span><span class="en">SJTU · Multimodal LLM · Running between mountains, lakes & the lab</span></p>
-    <div class="hero-cta reveal">
-      <a href="#intern" class="btn btn-solid"><span class="zh">探索我的世界</span><span class="en">Explore My World</span></a>
-      <a href="#contact" class="btn btn-ghost"><span class="zh">联系我 ↗</span><span class="en">Contact ↗</span></a>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <p class="hero-label reveal"><span class="zh">深度 001 · 下潜开始</span><span class="en">Depth 001 · Descending</span></p>
+      <h1 class="hero-name reveal">lemon.li</h1>
+      <p class="hero-tagline reveal"><span class="zh">上海交通大学 · 多模态大模型 × 具身智能 × 研途信使创始人</span><span class="en">SJTU · Multimodal LLM × Embodied Intelligence × Founder of Yantu Messenger</span></p>
+      <p class="hero-note reveal">ESTJ · <span class="zh">把想法沉下去，把产品浮上来。</span><span class="en">Sink the ideas, surface the products.</span></p>
+      <div class="hero-cta reveal">
+        <a href="#research" class="btn btn-solid"><span class="zh">开始下潜 ↓</span><span class="en">Descend ↓</span></a>
+        <a href="#contact" class="btn btn-ghost"><span class="zh">联系我</span><span class="en">Contact</span></a>
+      </div>
     </div>
+    <figure class="hero-portrait reveal">
+      <img src="assets/portrait-crop.jpg" alt="lemon.li" class="portrait-img" width="330" height="445" fetchpriority="high" decoding="async">
+      <figcaption class="portrait-caption reveal">Log 01 — <span class="zh">观察者，已浸入深海</span><span class="en">The observer, submerged</span></figcaption>
+    </figure>
   </div>
-  <div class="hero-scroll"><span class="zh">向下滚动</span><span class="en">Scroll</span><i></i></div>
+  <div class="hero-scroll"><span class="zh">向下滚动下潜</span><span class="en">Scroll to descend</span><i></i></div>
 </header>
 
 <main>
 
-<section class="stats" id="stats">
-  <div class="container stats-grid">
-    <div class="stat reveal"><p class="stat-num"><span data-count="30">0</span>+</p><p class="stat-label"><span class="zh">竞赛奖项</span><span class="en">Competition Awards</span></p></div>
-    <div class="stat reveal"><p class="stat-num"><span data-count="2">0</span><small>/99</small></p><p class="stat-label"><span class="zh">本科综合排名</span><span class="en">Undergraduate Rank</span></p></div>
-    <div class="stat reveal"><p class="stat-num"><span data-count="37">0</span>k<small>★</small></p><p class="stat-label"><span class="zh">VoxCPM 开源贡献</span><span class="en">VoxCPM Open Source</span></p></div>
-    <div class="stat reveal"><p class="stat-num"><span data-count="2">0</span></p><p class="stat-label"><span class="zh">大厂算法实习</span><span class="en">Industry Internships</span></p></div>
-  </div>
-</section>
-
-<section class="section section-alt" id="intern">
+<section class="section" id="about">
   <div class="container">
-    <p class="section-kicker reveal">01 · INTERNSHIPS</p>
-    <h2 class="section-title reveal"><span class="zh">实习 · 在一线大厂炼模型</span><span class="en">Internships · Training Models in the Field</span></h2>
-    <div class="tabs reveal" id="internTabs">
-      <button class="tab-btn active" data-tab="bytedance"><span class="zh">字节跳动 · 剪映</span><span class="en">ByteDance · CapCut</span></button>
-      <button class="tab-btn" data-tab="modelbest"><span class="zh">面壁智能</span><span class="en">Modelbest</span></button>
-    </div>
-
-    <div class="tab-panel active" id="tab-bytedance">
-      <div class="intern-head reveal">
-        <h3><span class="zh">多模态大模型算法实习生</span><span class="en">Multimodal LLM Algorithm Intern</span></h3>
-        <span class="intern-time">2026.03 – 2026.08</span>
+    <p class="section-label reveal">Depth 002 · <span class="zh">关于</span><span class="en">ABOUT</span></p>
+    <h2 class="section-title reveal"><span class="zh">信号源</span><span class="en">The Signal Source</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><span class="zh">你好，我是 lemon.li。上海交通大学电子信息硕士（溥渊未来技术学院），研究多模态大模型与具身智能；同时是「研途信使」微信小程序的创始人——把 AI 做成真正被人用起来的产品，是我研究之外最执着的下一条航线。</span><span class="en">Hello, I'm lemon.li. A master's student in Electronic Information at SJTU (Polaris Future Technology College), researching multimodal LLMs and embodied intelligence. I also founded the "Yantu Messenger" WeChat mini program — turning AI into products people actually use is my second expedition.</span></p>
       </div>
-      <div class="timeline">
-        <div class="tl-item reveal"><h4>Doubao-1.8 <span class="zh">动效检测 SFT</span><span class="en">Motion Detection SFT</span></h4><p><span class="zh">搭建「三路捞数 → 双模型交叉打分 → 人工 Review → SFT 训练」完整数据闭环，主动采样与迭代清洗解决分类边界模糊问题，三分一致率达 85%，超额完成业务目标。</span><span class="en">Built a full data flywheel — triple-source sampling, dual-model cross scoring, human review, SFT — with active sampling and iterative cleaning; reached 85% tri-consistency, exceeding the business target.</span></p></div>
-        <div class="tl-item reveal"><h4>Doubao-2.0 lite <span class="zh">能力蒸馏</span><span class="en">Capability Distillation</span></h4><p><span class="zh">针对大模型推理成本痛点，主导将大模型动效检测能力蒸馏至轻量模型，在保证评测水位的同时显著降低线上推理成本。</span><span class="en">Led distilling large-model motion detection into a lightweight model, keeping evaluation quality while sharply cutting online inference cost.</span></p></div>
-        <div class="tl-item reveal"><h4><span class="zh">手指畸变专项探索</span><span class="en">Finger Distortion Study</span></h4><p><span class="zh">搭建 3K 正负样本标注与增强 pipeline，开展 SFT 实验与 badcase 分析，确认手指/脚趾畸变属模型结构性盲区，形成数据质量、标注成本与业务 ROI 评估结论。</span><span class="en">Built a 3K-sample labeling & augmentation pipeline, ran SFT experiments and badcase analysis, confirming finger/toe distortion as a structural blind spot with a data-quality vs. ROI assessment.</span></p></div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-modelbest">
-      <div class="intern-head reveal">
-        <h3><span class="zh">语音大模型算法实习生 · 基础模型中心</span><span class="en">Speech LLM Algorithm Intern · Foundation Model Center</span></h3>
-        <span class="intern-time">2025.10 – 2026.02</span>
-      </div>
-      <div class="timeline">
-        <div class="tl-item reveal"><h4>VoxCPM 1.0 → 2.0 <span class="zh">架构迭代</span><span class="en">Architecture Iteration</span></h4><p><span class="zh">参与 GitHub 37k+ Stars 开源语音大模型从 1.0 到 2.0 的迭代训练，参与四项核心架构改进：AudioVAE V2 非对称编解码（16kHz 编码 / 48kHz 重建，隐式超分辨率）；RALM 融合改造（Concat-Proj 融合层、移除位置编码、FSQ 瓶颈拓宽）；LocDiT 多 Token 条件化（提升扩散一致性）；统一序列组织（基础 TTS / 声纹设计 / 可控克隆 / 续写克隆四种模式共享参数）。</span><span class="en">Contributed to the 1.0 → 2.0 iteration of a 37k+ star open-source speech LLM, touching four core architecture upgrades: AudioVAE V2 asymmetric codec (16kHz encode / 48kHz reconstruct, implicit super-resolution); RALM fusion rework (Concat-Proj, position-encoding removal, wider FSQ bottleneck); LocDiT multi-token conditioning for diffusion consistency; unified sequence organization shared across four TTS modes.</span></p></div>
-        <div class="tl-item reveal"><h4><span class="zh">多语种 ASR 评测 · 数据工程 · 风洞实验</span><span class="en">Multilingual ASR Eval · Data Engineering</span></h4><p><span class="zh">构建覆盖 10 种方言 + 20 种国际语言的 ASR 评测体系，对 Whisper、Qwen3-ASR 等 8 个主流模型系统评测；搭建风洞实验框架，以控制变量法调整方言/通用、近场/远场、纯净/带噪样本配比，分析对 WER/CER 与噪声鲁棒性的影响；搜集处理 2 万小时噪声数据，设计在线增强方案并经消融验证抗噪提升。</span><span class="en">Built an eval suite spanning 10 dialects + 20 languages across 8 mainstream ASR models; ran wind-tunnel experiments on dialect/proximity/noise data ratios against WER/CER and noise robustness; processed 20k hours of noise data with online augmentation validated by ablations.</span></p></div>
-        <div class="tl-item reveal"><h4><span class="zh">语音分离与全双工对话系统</span><span class="en">Speech Separation &amp; Full-Duplex System</span></h4><p><span class="zh">评测 Mel-Band-Roformer、Demucs、SAM-Audio 在 -5dB~20dB SNR 下的分离性能（STOI/PESQ/RTF），将 Roformer 重采样移植至 GPU CUDA 提速推理；部署 FireRedChat 全双工语音对话系统，集成 pVAD、流式 ASR、语义理解、LLM、TTS 端到端模块，实现实时打断与流式传输。</span><span class="en">Evaluated Mel-Band-Roformer, Demucs and SAM-Audio at -5~20dB SNR (STOI/PESQ/RTF), moving Roformer resampling to GPU CUDA for faster inference; deployed the FireRedChat full-duplex voice stack — pVAD, streaming ASR, semantic understanding, LLM and TTS — with realtime barge-in and streaming transport.</span></p></div>
-      </div>
+      <aside class="about-card reveal">
+        <h4>MBTI · ESTJ</h4>
+        <p><span class="zh">「执行者」——务实、有条理、使命必达：先排好计划，再一路潜到目标深度。</span><span class="en">"The Executive" — pragmatic, organized, mission-driven: plan the dive, then descend all the way.</span></p>
+        <div class="about-tags"><span>SJTU</span><span>Multimodal LLM</span><span>Embodied AI</span><span>Founder</span></div>
+      </aside>
     </div>
   </div>
 </section>
 
 <section class="section" id="research">
   <div class="container">
-    <p class="section-kicker reveal">02 · RESEARCH</p>
-    <h2 class="section-title reveal"><span class="zh">研究 · 从脑电到多模态</span><span class="en">Research · From EEG to Multimodality</span></h2>
+    <p class="section-label reveal">Depth 003 · <span class="zh">研究</span><span class="en">RESEARCH</span></p>
+    <h2 class="section-title reveal"><span class="zh">两条下潜航线</span><span class="en">Two Descending Routes</span></h2>
     <p class="section-sub reveal"><span class="zh">研究兴趣：多模态大模型 · 具身智能</span><span class="en">Research interests: Multimodal LLMs · Embodied Intelligence</span></p>
-    <div class="card-grid">
+    <div class="route-grid">
 
-      <article class="card card-teal reveal">
-        <div class="card-head"><h3>SomnoVLM</h3><span class="card-badge"><span class="zh">ICME 2027 投稿</span><span class="en">ICME 2027 Submission</span></span></div>
-        <p><span class="zh">基于 Qwen2.5-VL 的多模态睡眠分期框架，融合 EEG 波形与频谱信息，以极少量可训练参数超越现有 VLM 方案，并构建可审计的解释机制，提升临床可验证性。</span><span class="en">A multimodal sleep staging framework on Qwen2.5-VL, fusing EEG waveforms and spectral cues — surpassing existing VLM baselines with minimal trainable params and auditable explanations for clinical verifiability.</span></p>
-        <div class="card-tags"><span>Qwen2.5-VL</span><span>LoRA</span><span>EEG</span></div>
+      <article class="route-card reveal">
+        <div class="route-head">
+          <span class="route-glyph">▦</span>
+          <h3><span class="zh">多模态大模型</span><span class="en">Multimodal LLM</span></h3>
+        </div>
+        <p><span class="zh">大创项目「基于大模型的跨模态理解与预测研究」（负责人 / 第一作者）：提出 SomnoVLM 睡眠分期框架，将 EEG 波形图像与频谱证据融合建模，仅训练极少参数即超越现有 VLM 方案，并生成可审计的解释报告；成果投稿至国际学术会议。</span><span class="en">Innovation project "Cross-modal Understanding and Prediction with Large Models" (Lead / First Author): proposed SomnoVLM, a sleep staging framework fusing EEG waveform images with spectral evidence — surpassing existing VLM baselines with minimal trainable parameters and auditable explanations; submitted to an international academic conference.</span></p>
+        <div class="route-tags"><span>Qwen2.5-VL</span><span>LoRA</span><span>EEG</span><span>Explainability</span></div>
       </article>
 
-      <article class="card card-blue reveal">
-        <div class="card-head"><h3><span class="zh">国家重点研发计划</span><span class="en">National Key R&amp;D Program</span></h3><span class="card-badge"><span class="zh">子课题成员</span><span class="en">Member</span></span></div>
-        <p><span class="zh">参与多机器人协同感知方向子课题，探索多模态信息融合与大模型在机器人感知与决策中的应用。</span><span class="en">Subproject member on multi-robot collaborative perception, exploring multimodal fusion and LLM-driven robot perception & decision-making.</span></p>
-        <div class="card-tags"><span>Multimodal Fusion</span><span>Robotics</span></div>
+      <article class="route-card reveal">
+        <div class="route-head">
+          <span class="route-glyph">◉</span>
+          <h3><span class="zh">具身智能</span><span class="en">Embodied Intelligence</span></h3>
+        </div>
+        <p><span class="zh">国家重点研发计划「多机器人系统全域感知与智能决策」子课题成员：探索多模态信息融合与大模型在复杂环境中机器人群体感知与决策能力的应用。</span><span class="en">Member of a subtopic under the National Key R&amp;D Program "Multi-robot System Perception and Intelligent Decision-making": exploring multimodal fusion and LLM-driven perception and decision-making for robot swarms in complex environments.</span></p>
+        <div class="route-tags"><span>Multimodal Fusion</span><span>Robotics</span><span>LLM Agents</span></div>
       </article>
 
-      <article class="card card-pink reveal">
-        <div class="card-head"><h3><span class="zh">大创 · 大模型应用研究</span><span class="en">Innovation Project · LLM Applications</span></h3><span class="card-badge"><span class="zh">负责人 / 产品创始人</span><span class="en">Lead / Product Founder</span></span></div>
-        <p><span class="zh">探索大模型微调与提示工程，并将研究成果产品化为「研途信使」微信小程序，实现 AI 技术的落地。</span><span class="en">Explored LLM fine-tuning and prompt engineering, and turned the research into the "Yantu Messenger" WeChat mini program.</span></p>
-        <div class="card-tags"><span>Transformer</span><span>LoRA</span><span>Prompt Eng.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="intern">
+  <div class="container">
+    <p class="section-label reveal">Depth 004 · <span class="zh">实习</span><span class="en">INTERNSHIPS</span></p>
+    <h2 class="section-title reveal"><span class="zh">深水作业记录</span><span class="en">Field Logs</span></h2>
+    <div class="log-list">
+
+      <article class="log-item reveal">
+        <div class="log-head">
+          <h3><span class="zh">字节跳动 · 剪映</span><span class="en">ByteDance · CapCut</span></h3>
+          <span class="log-role"><span class="zh">多模态大模型算法实习生</span><span class="en">Multimodal LLM Algorithm Intern</span></span>
+          <span class="log-time">2026.03 – 2026.08</span>
+        </div>
+        <p><span class="zh">参与视频 / 图片质量机评：搭建三路捞数、双模型交叉打分到 SFT 训练的完整数据闭环，三分一致率 85%；主导将动效检测能力蒸馏至轻量模型，显著降低线上推理成本。</span><span class="en">Worked on video/image quality assessment: built a full data flywheel from triple-source sampling and dual-model cross scoring to SFT training, reaching 85% tri-consistency; led distilling motion detection into a lightweight model, sharply cutting online inference cost.</span></p>
+      </article>
+
+      <article class="log-item reveal">
+        <div class="log-head">
+          <h3><span class="zh">面壁智能 · 基础模型中心</span><span class="en">Modelbest · Foundation Model Center</span></h3>
+          <span class="log-role"><span class="zh">语音大模型算法实习生</span><span class="en">Speech LLM Algorithm Intern</span></span>
+          <span class="log-time">2025.10 – 2026.02</span>
+        </div>
+        <p><span class="zh">参与 VoxCPM 开源项目：构建覆盖 10 种方言与 20 种语言的 ASR 评测体系与数据配比风洞实验；部署集成流式 ASR 与 TTS 的全双工实时语音对话系统。</span><span class="en">Contributed to the open-source VoxCPM project: built a 10-dialect × 20-language ASR eval suite and data-ratio wind-tunnel experiments; deployed a full-duplex realtime voice dialogue system integrating streaming ASR and TTS.</span></p>
       </article>
 
     </div>
@@ -118,55 +133,24 @@
 
 <section class="section" id="venture">
   <div class="container">
-    <p class="section-kicker reveal">03 · VENTURE</p>
-    <h2 class="section-title reveal"><span class="zh">创业 · 研途信使</span><span class="en">Venture · Yantu Messenger</span></h2>
-    <p class="section-sub reveal"><span class="zh">让每一封套磁邮件，都被认真对待。</span><span class="en">Making every outreach email count.</span></p>
-    <div class="venture-grid">
-      <article class="venture-card reveal">
-        <div class="venture-emoji">✉️</div>
-        <h3>研途信使</h3>
-        <p><span class="zh">由保研至清北华五 C9 的学长学姐共同开发的微信小程序：基于大模型生成更智能、更个性化的套磁邮件，支持批量发送与内容定制，实现 AI 技术的产品化落地。获全国大学生三创赛北京市二等奖。</span><span class="en">A WeChat mini program built by students admitted to C9 universities: LLM-powered, personalized outreach emails with bulk sending and customization — AI turned into a real product. National "Three Creations" Competition Beijing Second Prize.</span></p>
-      </article>
-      <article class="venture-card reveal">
-        <div class="venture-emoji">🌊</div>
-        <h3><span class="zh">入驻大零号湾</span><span class="en">Dalinghao Bay Incubation</span></h3>
-        <p><span class="zh">团队即将入驻上海交大「大零号湾」科技创新策源功能区，在校地协同的创新创业生态中继续打磨产品。</span><span class="en">Our team is about to move into SJTU's "Dalinghao Bay" sci-tech innovation zone, sharpening the product within a campus-industry ecosystem.</span></p>
-      </article>
-      <article class="venture-card reveal">
-        <div class="venture-emoji">🤝</div>
-        <h3><span class="zh">对接阿里千问办公</span><span class="en">Alibaba Qwen Partnership</span></h3>
-        <p><span class="zh">对接阿里千问办公的相关活动与资源，探索大模型能力在教育场景的更深落地。</span><span class="en">Partnering with Alibaba Qwen Office on events and resources, exploring deeper LLM applications in education.</span></p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="life">
-  <div class="container">
-    <p class="section-kicker reveal">04 · LIFE</p>
-    <h2 class="section-title reveal"><span class="zh">生活 · 有脚就行</span><span class="en">Life · Just Add Feet</span></h2>
-    <div class="life-grid">
-      <div class="life-chips reveal">
-        <span class="life-chip">🏋️ <b><span class="zh">健身</span><span class="en">Gym</span></b><i><span class="zh">又菜又爱玩</span><span class="en">bad but passionate</span></i></span>
-        <span class="life-chip">🥏 <b><span class="zh">飞盘</span><span class="en">Frisbee</span></b><i><span class="zh">追风少年</span><span class="en">chasing wind</span></i></span>
-        <span class="life-chip">🏐 <b><span class="zh">排球</span><span class="en">Volleyball</span></b><i><span class="zh">弹跳担当</span><span class="en">jump specialist</span></i></span>
-        <span class="life-chip">⛷️ <b><span class="zh">滑雪</span><span class="en">Skiing</span></b><i><span class="zh">全靠摔</span><span class="en">all falls, no skills</span></i></span>
-        <span class="life-chip">🏃 <b><span class="zh">跑步</span><span class="en">Running</span></b><i><span class="zh">有脚就行</span><span class="en">just add feet</span></i></span>
-        <span class="life-chip">🎤 <b><span class="zh">即兴脱口秀</span><span class="en">Improv Comedy</span></b><i><span class="zh">现挂担当</span><span class="en">riffing live</span></i></span>
-        <span class="life-chip">🏸 <b><span class="zh">羽毛球</span><span class="en">Badminton</span></b><i><span class="zh">杀球靠吼</span><span class="en">smash & shout</span></i></span>
+    <p class="section-label reveal">Depth 005 · <span class="zh">创业</span><span class="en">VENTURE</span></p>
+    <h2 class="section-title reveal"><span class="zh">浮出水面的产品</span><span class="en">What Surfaced</span></h2>
+    <article class="venture-card reveal">
+      <div class="venture-head">
+        <span class="venture-glyph">✉</span>
+        <h3><span class="zh">研途信使</span><span class="en">Yantu Messenger</span></h3>
+        <span class="venture-badge"><span class="zh">创始人 · 技术负责人</span><span class="en">Founder · Tech Lead</span></span>
       </div>
-      <blockquote class="quote reveal">
-        <p><span class="zh">焦虑不是敌人，而是一个奇怪的队友——它会拖你后腿，但也会逼你变强。学会和它并肩走下去，你会发现自己能比想象中走得更远。</span><span class="en">Anxiety isn't the enemy — it's a strange teammate. It slows you down, but also pushes you to grow. Walk alongside it, and you'll go further than you imagined.</span></p>
-        <footer>— <span class="zh">《青年说》专访 · 与焦虑共处</span><span class="en">Interview · Living with Anxiety</span></footer>
-      </blockquote>
-    </div>
+      <p><span class="zh">由保研至 C9 高校的学长学姐共同开发的微信小程序：基于大模型生成更智能、更个性化的套磁邮件，支持批量发送与内容定制，让 AI 真正落到保研沟通场景。获全国大学生三创赛北京市二等奖，产品已被保研辅导机构收购。</span><span class="en">A WeChat mini program built with seniors admitted to C9 universities: LLM-powered, personalized outreach emails with bulk sending and customization — AI landing squarely in the grad-school-admission scenario. National "Three Creations" Competition Beijing Second Prize; the product has been acquired by a graduate-admission consulting company.</span></p>
+      <div class="venture-tags"><span>WeChat Mini Program</span><span>LLM Generation</span><span>Cloud Dev</span><span>Acquired</span></div>
+    </article>
   </div>
 </section>
 
-<section class="section section-alt" id="awards">
+<section class="section" id="honors">
   <div class="container">
-    <p class="section-kicker reveal">05 · HONORS</p>
-    <h2 class="section-title reveal"><span class="zh">荣誉墙 · 国家级/省级/校级奖项 30+</span><span class="en">Honors · 30+ Awards at National / Provincial / University Level</span></h2>
+    <p class="section-label reveal">Depth 006 · <span class="zh">荣誉</span><span class="en">HONORS</span></p>
+    <h2 class="section-title reveal"><span class="zh">海床上的沉积物 · 国家级 / 省部级 / 校级奖项 30+</span><span class="en">Sediments on the Seafloor · 30+ Awards</span></h2>
     <div class="filter-bar reveal" id="awardFilter">
       <button class="filter-btn active" data-filter="all"><span class="zh">全部</span><span class="en">All</span></button>
       <button class="filter-btn" data-filter="national"><span class="zh">国家级</span><span class="en">National</span></button>
@@ -174,17 +158,17 @@
       <button class="filter-btn" data-filter="university"><span class="zh">校级</span><span class="en">University</span></button>
     </div>
     <div class="awards-grid" id="awardsGrid">
-      <div class="award award-national reveal"><span class="award-level"><span class="zh">国家级</span><span class="en">National</span></span><h4><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h4><p>2023–2024 · <span class="zh">全校 2‰</span><span class="en">Top 0.2% of the university</span></p></div>
+      <div class="award award-national reveal"><h4><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h4><p>2023–2024 · <span class="zh">全校 2‰</span><span class="en">Top 0.2%</span></p></div>
       <div class="award award-national reveal"><h4><span class="zh">蓝桥杯全国总决赛 C/C++ 组</span><span class="en">Lanqiao Cup National Finals C/C++</span></h4><p>2025 · <span class="zh">二等奖</span><span class="en">2nd Prize</span></p></div>
       <div class="award award-national reveal"><h4><span class="zh">全国大学生数学竞赛</span><span class="en">National Mathematics Competition</span></h4><p>2023 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-national reveal"><h4><span class="zh">全国部分地区大学生物理竞赛</span><span class="en">Regional Physics Competition</span></h4><p>2023 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">北京市大学生集成电路设计大赛</span><span class="en">Beijing IC Design Contest</span></h4><p>2025 / 2024 · <span class="zh">一等奖 / 二等奖</span><span class="en">1st / 2nd Prize</span></p></div>
-      <div class="award award-provincial reveal"><h4><span class="zh">北京市大学生音乐节</span><span class="en">Beijing College Music Festival</span></h4><p>2023 · <span class="zh">最佳表演奖 🎵</span><span class="en">Best Performance 🎵</span></p></div>
+      <div class="award award-provincial reveal"><h4><span class="zh">北京市大学生音乐节</span><span class="en">Beijing College Music Festival</span></h4><p>2023 · <span class="zh">最佳表演奖</span><span class="en">Best Performance</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">北京市大学生数学竞赛</span><span class="en">Beijing Mathematics Competition</span></h4><p>2023 · <span class="zh">二等奖</span><span class="en">2nd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">北京市大学生电子设计大赛</span><span class="en">Beijing Electronic Design Contest</span></h4><p>2024 · <span class="zh">二等奖</span><span class="en">2nd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">全国大学生三创赛北京赛区</span><span class="en">"Three Creations" Competition Beijing</span></h4><p>2026 · <span class="zh">二等奖 · 技术负责人</span><span class="en">2nd Prize · Tech Lead</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">中国国际大学生创新创业大赛 · 产业赛道</span><span class="en">Intl. Innovation Competition · Industry Track</span></h4><p>2024 · <span class="zh">二等奖 · 负责人</span><span class="en">2nd Prize · Lead</span></p></div>
-      <div class="award award-provincial reveal"><h4><span class="zh">中国国际大学生创新创业大赛 · 主赛道</span><span class="en">Intl. Innovation Competition · Main Track</span></h4><p>2024 / 2025 · <span class="zh">三等奖 ×2 · 负责人/核心成员</span><span class="en">3rd Prize ×2 · Lead / Core</span></p></div>
+      <div class="award award-provincial reveal"><h4><span class="zh">中国国际大学生创新创业大赛 · 主赛道</span><span class="en">Intl. Innovation Competition · Main Track</span></h4><p>2024 / 2025 · <span class="zh">三等奖 ×2</span><span class="en">3rd Prize ×2</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">蓝桥杯单片机设计与开发组</span><span class="en">Lanqiao Cup MCU Development</span></h4><p>2024 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">「大唐杯」新一代信息通信技术大赛</span><span class="en">"Datang Cup" ICT Contest</span></h4><p>2025 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">北京大学生光通信实践竞赛</span><span class="en">Beijing Optical Communication Contest</span></h4><p>2024 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
@@ -193,18 +177,19 @@
       <div class="award award-university reveal"><h4><span class="zh">实践创新一等奖学金 ×2</span><span class="en">Innovation 1st Scholarship ×2</span></h4><p>&nbsp;</p></div>
       <div class="award award-university reveal"><h4><span class="zh">思想品德一等奖学金 ×2</span><span class="en">Character 1st Scholarship ×2</span></h4><p>&nbsp;</p></div>
       <div class="award award-university reveal"><h4><span class="zh">优秀学生奖学金</span><span class="en">Outstanding Student Scholarship</span></h4><p><span class="zh">一等 / 二等</span><span class="en">1st / 2nd</span></p></div>
-      <div class="award award-university reveal"><h4><span class="zh">体美二等奖学金</span><span class="en">Sports & Arts 2nd Scholarship</span></h4><p>&nbsp;</p></div>
+      <div class="award award-university reveal"><h4><span class="zh">体美二等奖学金</span><span class="en">Sports &amp; Arts 2nd Scholarship</span></h4><p>&nbsp;</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark contact" id="contact">
+<section class="section contact" id="contact">
   <div class="container">
-    <p class="section-kicker reveal">06 · CONTACT</p>
-    <h2 class="section-title reveal"><span class="zh">来聊聊科研或创业？</span><span class="en">Let's talk research or startups?</span></h2>
+    <p class="section-label reveal">Depth 007 · <span class="zh">联系</span><span class="en">CONTACT</span></p>
+    <h2 class="section-title reveal"><span class="zh">上浮到这里找我</span><span class="en">Surface Here</span></h2>
     <div class="contact-grid">
-      <div class="contact-card reveal"><h4>📧 Email</h4><p>lihuaichuan@sjtu.edu.cn</p></div>
-      <div class="contact-card reveal"><h4>✉️ 研途信使</h4><p><span class="zh">公众号「研途信使」 · 期待同行者</span><span class="en">Official account · join the journey</span></p></div>
+      <a class="contact-card reveal" href="mailto:lihuaichuan@sjtu.edu.cn"><h4>📧 Email</h4><p>lihuaichuan@sjtu.edu.cn</p></a>
+      <div class="contact-card reveal"><h4>✉ <span class="zh">研途信使</span><span class="en">Yantu Messenger</span></h4><p><span class="zh">公众号「研途信使」 · 期待同行者</span><span class="en">Official account · join the journey</span></p></div>
+      <a class="contact-card reveal" href="https://github.com/huaichuan-li" target="_blank" rel="noopener"><h4>⌥ GitHub</h4><p>github.com/huaichuan-li</p></a>
     </div>
   </div>
 </section>
@@ -213,9 +198,11 @@
 
 <footer class="footer">
   <p class="footer-quote"><span class="zh">虚怀若谷，川流不息。</span><span class="en">Stay humble, keep flowing.</span></p>
-  <p class="footer-meta">© 2026 lemon.li · <span class="zh">上海交通大学</span><span class="en">Shanghai Jiao Tong University</span></p>
+  <p class="footer-meta">© 2026 lemon.li · <span class="zh">上海交通大学</span><span class="en">Shanghai Jiao Tong University</span> · <span class="zh">深海信号站</span><span class="en">SIGNAL DEEP</span></p>
 </footer>
 
+<script src="js/creatures.js"></script>
+<script src="js/sea.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
