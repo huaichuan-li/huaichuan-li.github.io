@@ -106,7 +106,8 @@
   }
 
   /* ---------- 预渲染精灵 ---------- */
-  var TONES = { bright: "#9FF0CE", mid: "#57D6AC", dim: "#3FA384" };
+  /* 浅蓝底上用深蓝字符，越深的水层越淡 */
+  var TONES = { bright: "#1B6BA8", mid: "#3D87BC", dim: "#7FAFD2" };
 
   function sprite(key, tone) {
     var sk = key + "|" + tone;
@@ -215,7 +216,8 @@
   }
 
   /* ---------- 背景随深度变暗 + 深度计 ---------- */
-  var BG_STOPS = [[5, 35, 27], [4, 23, 18], [2, 13, 10]];
+  /* 浅蓝三档：海面 → 中层 → 深水，越往下略深但始终保持明亮 */
+  var BG_STOPS = [[234, 244, 251], [224, 240, 250], [206, 231, 246]];
   var depthVal = document.getElementById("depthVal");
 
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -254,7 +256,7 @@
   function paint(dt, now) {
     var viewY = scrollY();
     var t = now / 1000;
-    var colBase = isMobile() ? 0.42 : 0.45;
+    var colBase = isMobile() ? 0.34 : 0.38;
     var colL = colX, colR = colX + colW;
 
     ctx.clearRect(0, 0, W, H);
