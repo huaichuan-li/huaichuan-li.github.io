@@ -211,8 +211,8 @@ nav, header, main, footer { position: relative; z-index: 1; }
 }
 .portrait-img {
   position: relative; z-index: 1;
-  display: block; width: 288px; height: auto; aspect-ratio: 660 / 890;
-  object-fit: cover; border-radius: 12px;
+  display: block; width: 288px; height: auto;
+  border-radius: 12px;
   border: 6px solid rgba(255, 255, 255, .92);
   box-shadow: 0 18px 46px rgba(27, 107, 168, .20);
 }
