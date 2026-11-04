@@ -123,7 +123,7 @@ body:not(.en) .en { display: none !important; }
 .intern-head h3 { font-size: 19px; font-weight: 700; color: var(--deep); }
 .intern-time { font-size: 13px; color: var(--accent); font-weight: 600; font-family: ui-monospace, Menlo, monospace; }
 
-/* ---- 时间线（实习 + 音乐） ---- */
+/* ---- 时间线（实习） ---- */
 .timeline { position: relative; padding-left: 26px; }
 .timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, var(--mist), var(--accent-2)); border-radius: 2px; }
 .tl-item { position: relative; padding-bottom: 26px; }
@@ -139,26 +139,6 @@ body:not(.en) .en { display: none !important; }
 .venture-emoji { font-size: 30px; margin-bottom: 12px; }
 .venture-card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; color: var(--deep); }
 .venture-card p { font-size: 13.5px; color: var(--ink-2); }
-
-/* ---- 音乐（深色章） ---- */
-.music-layout { display: grid; grid-template-columns: 1.25fr .9fr; gap: 44px; align-items: start; }
-.music-timeline { position: relative; padding-left: 0; }
-.mt-item { display: flex; gap: 18px; padding-bottom: 26px; position: relative; }
-.mt-item:not(:last-child)::before { content: ""; position: absolute; left: 52px; top: 34px; bottom: -4px; width: 1.5px; background: rgba(159,225,203,.3); }
-.mt-year { flex-shrink: 0; width: 104px; text-align: right; font-family: ui-monospace, Menlo, monospace; font-size: 13px; font-weight: 700; color: var(--amber); padding-top: 2px; }
-.mt-item h4 { font-size: 15.5px; font-weight: 700; color: #fff; }
-.mt-item p { font-size: 13px; color: rgba(255,255,255,.66); }
-.music-side { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 90px; }
-.skill-tags { background: rgba(255,255,255,.06); border: 1px solid rgba(159,225,203,.25); border-radius: var(--radius); padding: 22px; }
-.skill-tags h4 { font-size: 14px; margin-bottom: 12px; color: var(--mist); }
-.tags { display: flex; flex-wrap: wrap; gap: 9px; }
-.tag { font-size: 13px; background: rgba(255,255,255,.09); border: 1px solid rgba(159,225,203,.2); color: #fff; border-radius: 999px; padding: 5px 14px; transition: all .2s; }
-.tag:hover { background: var(--amber); border-color: var(--amber); transform: translateY(-2px); }
-.video-card { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,.06); border: 1px solid rgba(159,225,203,.25); border-radius: var(--radius); padding: 20px 22px; transition: all .25s; }
-.video-card:hover { background: rgba(255,255,255,.12); transform: translateY(-3px); }
-.vc-play { flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%; background: var(--amber); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; padding-left: 3px; }
-.video-card h4 { font-size: 14.5px; color: #fff; }
-.video-card p { font-size: 12.5px; color: rgba(255,255,255,.66); }
 
 /* ---- 生活 ---- */
 .life-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
@@ -208,8 +188,7 @@ body:not(.en) .en { display: none !important; }
 /* ---- 响应式 ---- */
 @media (max-width: 900px) {
   .card-grid, .venture-grid { grid-template-columns: 1fr; }
-  .music-layout, .life-grid { grid-template-columns: 1fr; }
-  .music-side { position: static; }
+  .life-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: repeat(2, 1fr); }
