@@ -107,10 +107,13 @@
 
   /* ---------- 预渲染精灵 ---------- */
   /* 浅蓝底上用深蓝字符，越深的水层越淡 */
-  var TONES = { bright: "#1B6BA8", mid: "#3D87BC", dim: "#7FAFD2" };
+  var TONES_DAY = { bright: "#1B6BA8", mid: "#3D87BC", dim: "#7FAFD2" };
+  var TONES_NIGHT = { bright: "#BFE3FA", mid: "#84C4EC", dim: "#538FC5" };
+  function isAbyss() { return document.body.classList.contains("abyss"); }
+  function tones() { return isAbyss() ? TONES_NIGHT : TONES_DAY; }
 
   function sprite(key, tone) {
-    var sk = key + "|" + tone;
+    var sk = key + "|" + tone + "|" + (isAbyss() ? "n" : "d");
     if (sprites[sk]) return sprites[sk];
 
     var cols = isMobile() ? 26 : 40;
@@ -128,7 +131,8 @@
     x.setTransform(dpr, 0, 0, dpr, 0, 0);
     x.font = cell + "px ui-monospace, SFMono-Regular, Menlo, monospace";
     x.textBaseline = "top";
-    x.fillStyle = TONES[tone] || TONES.mid;
+    var pal = tones();
+    x.fillStyle = pal[tone] || pal.mid;
 
     var glyph = { 1: "+", 2: "#", 3: ":" };
     var alpha = { 1: 0.65, 2: 1, 3: 0.5 };
@@ -217,18 +221,20 @@
 
   /* ---------- 背景随深度变暗 + 深度计 ---------- */
   /* 浅蓝三档：海面 → 中层 → 深水，越往下略深但始终保持明亮 */
-  var BG_STOPS = [[234, 244, 251], [224, 240, 250], [206, 231, 246]];
+  var BG_DAY = [[234, 244, 251], [224, 240, 250], [206, 231, 246]];
+  var BG_NIGHT = [[10, 26, 42], [7, 20, 34], [4, 13, 24]];
   var depthVal = document.getElementById("depthVal");
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
   function updateAmbience() {
+    var stops = isAbyss() ? BG_NIGHT : BG_DAY;
     var docH = document.documentElement.scrollHeight - H;
     var frac = docH > 0 ? clamp(scrollY() / docH, 0, 1) : 0;
-    var t = frac * (BG_STOPS.length - 1);
-    var i = Math.min(BG_STOPS.length - 2, Math.floor(t));
+    var t = frac * (stops.length - 1);
+    var i = Math.min(stops.length - 2, Math.floor(t));
     var f = t - i;
-    var a = BG_STOPS[i], b = BG_STOPS[i + 1];
+    var a = stops[i], b = stops[i + 1];
     document.body.style.backgroundColor =
       "rgb(" + Math.round(lerp(a[0], b[0], f)) + "," +
       Math.round(lerp(a[1], b[1], f)) + "," +
@@ -369,4 +375,12 @@
   /* 图片 / 字体加载完、或语言切换导致排版高度变化后，重算分段坐标 */
   window.addEventListener("load", function () { relayout(); });
   window.SEA_RELAYOUT = relayout;
+
+  /* 浅海 / 深空切换：重建精灵配色并刷新背景色 */
+  window.SEA_RETHEME = function () {
+    sprites = {};
+    measureSegs();
+    buildWorld();
+    paintOnce();
+  };
 })();

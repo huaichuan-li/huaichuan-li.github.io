@@ -39,13 +39,47 @@ a { color: inherit; text-decoration: none; }
 ::selection { background: rgba(44, 125, 191, .22); color: var(--foam); }
 .container { max-width: 1060px; margin: 0 auto; padding: 0 26px; }
 
+/* ---- 深空模式：夜蓝底 + 亮色星轨（默认仍为浅海浅蓝） ---- */
+body.abyss {
+  --bg-top: #0A1A2A; --bg-base: #081624; --bg-abyss: #040F1C;
+  --teal: #63B6E8; --blue: #8CCBEE; --mint: #5FA8D8;
+  --foam: #E4F1FA; --ink: #B8D6EA; --muted: rgba(184, 214, 234, .64);
+  --line: rgba(120, 190, 235, .20); --line-strong: rgba(120, 190, 235, .44);
+  --card: rgba(18, 42, 64, .56);
+  --amber: #E8A45C;
+  color: var(--ink);
+}
+body.abyss.sea {
+  background-image:
+    linear-gradient(rgba(140, 203, 238, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 203, 238, .055) 1px, transparent 1px);
+}
+body.abyss .nav { background: rgba(8, 22, 36, .82); }
+body.abyss .footer { background: rgba(8, 22, 36, .66); }
+body.abyss .btn-solid, body.abyss .filter-btn.active { color: #071523; }
+body.abyss .btn-ghost,
+body.abyss .about-tags span, body.abyss .route-tags span, body.abyss .venture-tags span,
+body.abyss .filter-btn { background: rgba(255, 255, 255, .05); }
+body.abyss .filter-btn:hover, body.abyss .btn-ghost:hover { background: rgba(140, 203, 238, .12); }
+body.abyss .contact-card:hover { background: rgba(255, 255, 255, .09); }
+body.abyss .lang-toggle, body.abyss .venture-badge { border-color: rgba(232, 164, 92, .5); }
+body.abyss .lang-toggle:hover { background: rgba(232, 164, 92, .12); }
+body.abyss .portrait-img { border-color: rgba(226, 241, 251, .86); box-shadow: 0 18px 46px rgba(0, 0, 0, .45); }
+body.abyss .about-card, body.abyss .route-card, body.abyss .venture-card,
+body.abyss .award, body.abyss .contact-card { box-shadow: 0 8px 26px rgba(0, 0, 0, .24); }
+@media (max-width: 640px) {
+  body.abyss .nav-links { background: #0B1E30; }
+}
+
 /* ---- 双语切换 ---- */
 body.en .zh { display: none !important; }
 body:not(.en) .en { display: none !important; }
 
-/* ---- 深海画布与深度计 ---- */
-.sea-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.sea-bg canvas { display: block; }
+/* ---- 星图 + 深海画布（两层叠放：星图在下，生物在上） ---- */
+.sea-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.sea-bg canvas { position: absolute; inset: 0; display: block; }
+.cosmos-canvas { z-index: 0; }
+.sea-bg > canvas:not(.cosmos-canvas) { z-index: 1; }
 nav, header, main, footer { position: relative; z-index: 1; }
 
 .depth-meter {
@@ -92,6 +126,15 @@ nav, header, main, footer { position: relative; z-index: 1; }
   border-radius: 999px; padding: 3px 12px; cursor: pointer; transition: all .2s;
 }
 .lang-toggle:hover { background: rgba(217, 123, 46, .10); }
+.sky-toggle {
+  font-family: var(--mono); font-size: 14px; line-height: 1;
+  color: var(--blue); background: transparent;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  width: 28px; height: 28px; padding: 0; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background .25s, transform .35s;
+}
+.sky-toggle:hover { background: rgba(44, 125, 191, .12); transform: rotate(28deg); }
 .nav-burger { display: none; background: none; border: none; cursor: pointer; width: 26px; height: 20px; position: relative; }
 .nav-burger span { position: absolute; left: 0; right: 0; height: 2px; background: var(--blue); transition: all .25s; }
 .nav-burger span:nth-child(1) { top: 0; }
@@ -190,6 +233,13 @@ nav, header, main, footer { position: relative; z-index: 1; }
   55% { transform: scaleY(1); transform-origin: top; }
   100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
 }
+.star-legend {
+  position: absolute; right: 30px; bottom: 30px;
+  font-family: var(--mono); font-size: 11.5px; color: var(--muted);
+  letter-spacing: 1.4px; opacity: .82;
+}
+.star-legend b { color: var(--teal); font-weight: 500; }
+@media (max-width: 900px) { .star-legend { display: none; } }
 
 /* ---- 版块通用 ---- */
 .section { padding: 108px 0; }

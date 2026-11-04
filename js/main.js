@@ -34,6 +34,29 @@
     }
   } catch (e) {}
 
+  // ---- 浅海 / 深空星图切换 ----
+  var skyToggle = document.getElementById("skyToggle");
+  function paintSkyBtn() {
+    if (!skyToggle) return;
+    var abyss = document.body.classList.contains("abyss");
+    skyToggle.textContent = abyss ? "☀" : "☾";
+    var tip = abyss ? "切回浅海" : "切换深空星图";
+    skyToggle.title = tip;
+    skyToggle.setAttribute("aria-label", tip);
+  }
+  if (skyToggle) {
+    skyToggle.addEventListener("click", function () {
+      var toAbyss = !document.body.classList.contains("abyss");
+      document.body.classList.toggle("abyss", toAbyss);
+      try { localStorage.setItem("lemon-sky", toAbyss ? "abyss" : "day"); } catch (e) {}
+      paintSkyBtn();
+      if (typeof window.COSMOS_RETHEME === "function") window.COSMOS_RETHEME();
+      if (typeof window.SEA_RETHEME === "function") window.SEA_RETHEME();
+      afterLangChange();
+    });
+    paintSkyBtn();
+  }
+
   // ---- 移动端菜单 ----
   var burger = document.getElementById("navBurger");
   var navLinks = document.getElementById("navLinks");

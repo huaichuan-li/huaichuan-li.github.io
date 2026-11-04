@@ -62,9 +62,14 @@
   .photo-wall { grid-template-columns: repeat(2, 1fr); }
   .video-row { grid-template-columns: 1fr; }
 }
+body.abyss .photo-slot, body.abyss .video-slot { background: rgba(255, 255, 255, .04); }
+body.abyss .photo-slot:hover { background: rgba(140, 203, 238, .10); }
+body.abyss .video-slot:hover { background: rgba(232, 164, 92, .10); }
+body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
 </style>
 </head>
 <body class="sea">
+<script>try{if(localStorage.getItem("lemon-sky")==="abyss")document.body.classList.add("abyss");}catch(e){}</script>
 
 <div class="sea-bg" aria-hidden="true"></div>
 <div class="depth-meter" id="depthMeter" aria-hidden="true"><span class="dm-line"></span><span class="dm-val" id="depthVal">0 m</span><span class="dm-line"></span></div>
@@ -79,6 +84,7 @@
       <li><a href="#videos"><span class="zh">影像</span><span class="en">videos</span></a></li>
       <li><a href="#timeline"><span class="zh">时间线</span><span class="en">timeline</span></a></li>
       <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button></li>
+      <li><button class="sky-toggle" id="skyToggle" aria-label="切换星图模式">☾</button></li>
     </ul>
   </div>
 </nav>
@@ -166,6 +172,7 @@
 </footer>
 
 <script src="js/creatures.js"></script>
+<script src="js/cosmos.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/main.js"></script>
 </body>
