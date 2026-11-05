@@ -96,8 +96,8 @@ setTimeout(function () {
 <section class="section" id="research">
   <div class="container">
     <p class="section-label reveal">02 — <span class="zh">研究</span><span class="en">RESEARCH</span></p>
-    <h2 class="section-title reveal"><span class="zh">研究方向</span><span class="en">Research Directions</span></h2>
-    <p class="section-sub reveal"><span class="zh">研究兴趣：多模态大模型 · 具身智能</span><span class="en">Research interests: Multimodal LLMs · Embodied Intelligence</span></p>
+    <h2 class="section-title reveal"><span class="zh">研究兴趣</span><span class="en">Research Interests</span></h2>
+    <p class="section-sub reveal"><span class="zh">多模态大模型 · 具身智能</span><span class="en">Multimodal LLMs · Embodied Intelligence</span></p>
     <div class="route-grid">
 
       <article class="route-card reveal">
@@ -105,7 +105,6 @@ setTimeout(function () {
           <span class="route-glyph">▦</span>
           <h3><span class="zh">多模态大模型</span><span class="en">Multimodal LLM</span></h3>
         </div>
-        <p><span class="zh">大创项目「基于大模型的跨模态理解与预测研究」（负责人 / 第一作者）：提出 SomnoVLM 睡眠分期框架，将 EEG 波形图像与频谱证据融合建模，仅训练极少参数即超越现有 VLM 方案，并生成可审计的解释报告；成果投稿至国际学术会议。</span><span class="en">Innovation project "Cross-modal Understanding and Prediction with Large Models" (Lead / First Author): proposed SomnoVLM, a sleep staging framework fusing EEG waveform images with spectral evidence — surpassing existing VLM baselines with minimal trainable parameters and auditable explanations; submitted to an international academic conference.</span></p>
         <div class="route-tags"><span>Qwen2.5-VL</span><span>LoRA</span><span>EEG</span><span>Explainability</span></div>
       </article>
 
@@ -114,7 +113,6 @@ setTimeout(function () {
           <span class="route-glyph">◉</span>
           <h3><span class="zh">具身智能</span><span class="en">Embodied Intelligence</span></h3>
         </div>
-        <p><span class="zh">国家重点研发计划「多机器人系统全域感知与智能决策」子课题成员：探索多模态信息融合与大模型在复杂环境中机器人群体感知与决策能力的应用。</span><span class="en">Member of a subtopic under the National Key R&amp;D Program "Multi-robot System Perception and Intelligent Decision-making": exploring multimodal fusion and LLM-driven perception and decision-making for robot swarms in complex environments.</span></p>
         <div class="route-tags"><span>Multimodal Fusion</span><span>Robotics</span><span>LLM Agents</span></div>
       </article>
 
@@ -158,8 +156,21 @@ setTimeout(function () {
         <h3><span class="zh">研途信使</span><span class="en">Yantu Messenger</span></h3>
         <span class="venture-badge"><span class="zh">创始人 · 技术负责人</span><span class="en">Founder · Tech Lead</span></span>
       </div>
-      <p><span class="zh">由保研至 C9 高校的学长学姐共同开发的微信小程序：基于大模型生成更智能、更个性化的套磁邮件，支持批量发送与内容定制，让 AI 真正落到保研沟通场景。获全国大学生三创赛北京市二等奖，产品已被保研辅导机构收购。</span><span class="en">A WeChat mini program built with seniors admitted to C9 universities: LLM-powered, personalized outreach emails with bulk sending and customization — AI landing squarely in the grad-school-admission scenario. National "Three Creations" Competition Beijing Second Prize; the product has been acquired by a graduate-admission consulting company.</span></p>
-      <div class="venture-tags"><span>WeChat Mini Program</span><span>LLM Generation</span><span>Cloud Dev</span><span>Acquired</span></div>
+      <div class="venture-body">
+        <div class="venture-copy">
+          <p><span class="zh">由保研至 C9 高校的学长学姐共同开发的微信小程序：基于大模型生成更智能、更个性化的套磁邮件，支持批量发送与内容定制，让 AI 真正落到保研沟通场景。获全国大学生三创赛北京市二等奖，产品已被保研辅导机构收购。</span><span class="en">A WeChat mini program built with seniors admitted to C9 universities: LLM-powered, personalized outreach emails with bulk sending and customization — AI landing squarely in the grad-school-admission scenario. National "Three Creations" Competition Beijing Second Prize; the product has been acquired by a graduate-admission consulting company.</span></p>
+          <div class="venture-tags"><span>WeChat Mini Program</span><span>LLM Generation</span><span>Cloud Dev</span><span>Acquired</span></div>
+        </div>
+        <figure class="venture-qr">
+          <div class="qr-frame">
+            <picture>
+              <source srcset="assets/yantu-miniapp-qr.webp" type="image/webp">
+              <img src="assets/yantu-miniapp-qr.png" alt="研途信使微信小程序码，用微信扫一扫打开" width="240" height="240" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <figcaption><span class="zh">微信扫一扫 · 直接体验小程序</span><span class="en">Scan in WeChat to open the mini program</span></figcaption>
+        </figure>
+      </div>
     </article>
   </div>
 </section>
@@ -172,7 +183,6 @@ setTimeout(function () {
       <button class="filter-btn active" data-filter="all" aria-pressed="true"><span class="zh">全部</span><span class="en">All</span></button>
       <button class="filter-btn" data-filter="national" aria-pressed="false"><span class="zh">国家级</span><span class="en">National</span></button>
       <button class="filter-btn" data-filter="provincial" aria-pressed="false"><span class="zh">省部级</span><span class="en">Provincial</span></button>
-      <button class="filter-btn" data-filter="university" aria-pressed="false"><span class="zh">校级</span><span class="en">University</span></button>
     </div>
     <div class="awards-grid" id="awardsGrid">
       <div class="award award-national reveal"><h4><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h4><p>2023–2024 · <span class="zh">全校 2‰</span><span class="en">Top 0.2%</span></p></div>
@@ -189,7 +199,6 @@ setTimeout(function () {
       <div class="award award-provincial reveal"><h4><span class="zh">蓝桥杯单片机设计与开发组</span><span class="en">Lanqiao Cup MCU Development</span></h4><p>2024 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">「大唐杯」新一代信息通信技术大赛</span><span class="en">"Datang Cup" ICT Contest</span></h4><p>2025 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
       <div class="award award-provincial reveal"><h4><span class="zh">北京大学生光通信实践竞赛</span><span class="en">Beijing Optical Communication Contest</span></h4><p>2024 · <span class="zh">三等奖</span><span class="en">3rd Prize</span></p></div>
-      <div class="award award-university reveal"><h4><span class="zh">校三好学生</span><span class="en">Merit Student</span></h4><p><span class="zh">北方工业大学</span><span class="en">NCUT</span></p></div>
     </div>
   </div>
 </section>
