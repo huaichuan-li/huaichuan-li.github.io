@@ -403,7 +403,7 @@ nav, header, main, footer { position: relative; z-index: 1; }
 .award:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: 0 12px 26px rgba(27, 107, 168, .12); }
 .award-national { border-left-color: var(--amber); }
 .award-provincial { border-left-color: var(--teal); }
-.award h4 { font-size: 14px; font-weight: 700; color: var(--foam); line-height: 1.45; }
+.award h4 { font-size: 14px; font-weight: 700; color: var(--foam); line-height: 1.45; overflow-wrap: break-word; }
 .award p { font-size: 12.5px; color: var(--muted); margin-top: 4px; font-family: var(--mono); }
 .award.hidden { display: none; }
 
