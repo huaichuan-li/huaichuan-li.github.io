@@ -31,6 +31,31 @@ setTimeout(function () {
 .photo-slot .ps-icon { font-size: 24px; font-family: var(--mono); color: var(--teal); opacity: .85; }
 .photo-slot .ps-label { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; }
 .photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+/* 已填充的照片格：去掉虚线占位，加图注与点开原图 */
+.photo-slot--filled {
+  display: block; position: relative; overflow: hidden; padding: 0;
+  border-style: solid; background: var(--bg-base); cursor: pointer;
+  box-shadow: 0 8px 22px rgba(27, 107, 168, .12);
+}
+.photo-slot--filled:hover { border-color: var(--teal); box-shadow: 0 14px 32px rgba(27, 107, 168, .22); }
+.photo-slot--filled picture, .photo-slot--filled img { display: block; width: 100%; height: 100%; }
+.photo-slot--filled img { border-radius: 0; object-position: center 32%; transition: transform .45s ease; }
+.photo-slot--filled:hover img { transform: scale(1.05); }
+.photo-slot--filled .ps-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 12px 10px;
+  background: linear-gradient(180deg, transparent, rgba(8, 30, 48, .74));
+  color: #fff; font-family: var(--mono); font-size: 12px; letter-spacing: .5px;
+  text-align: left; pointer-events: none;
+}
+.photo-slot--filled .ps-open {
+  position: absolute; top: 8px; right: 10px; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: rgba(8, 30, 48, .46); color: #fff;
+  font-family: var(--mono); font-size: 13px; opacity: 0;
+  transition: opacity .25s; pointer-events: none;
+}
+.photo-slot--filled:hover .ps-open, .photo-slot--filled:focus-visible .ps-open { opacity: 1; }
+body.abyss .photo-slot--filled { background: var(--bg-base); }
 
 .video-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
 .video-slot {
@@ -103,7 +128,7 @@ body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
     <h1 class="hero-name reveal" style="font-size: clamp(40px, 6vw, 72px); display: block; letter-spacing: normal;"><span class="zh">生活</span><span class="en">Life</span></h1>
     <p class="hero-tagline reveal"><span class="zh">科研与创业之外——照片、演出，和一些值得记录的瞬间。</span><span class="en">Beyond research and startups — photos, performances, and moments worth keeping.</span></p>
     <pre class="log-banner reveal" aria-hidden="true">  &gt;&lt;(((*&gt;   ~ ^ ~ ^ ~   &lt;&gt;&lt;&gt;   ~ ^ ~   &gt;&lt;(((*&gt;   ~ ^ ~ ^ ~   &lt;&gt;&lt;&gt;
-<span class="zh">/* 素材整理中，本页各区块已预留好位置，等照片和视频到货 */</span><span class="en">/* material incoming — slots reserved, photos &amp; videos on the way */</span></pre>
+<span class="zh">/* 照片墙已开张，视频与时间线的位置仍留着 */</span><span class="en">/* photo wall is live, slots for videos &amp; timeline remain */</span></pre>
   </div>
 </header>
 
@@ -113,9 +138,16 @@ body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
   <div class="container">
     <p class="section-label reveal">01 — <span class="zh">照片墙</span><span class="en">PHOTO WALL</span></p>
     <h2 class="section-title reveal"><span class="zh">照片墙</span><span class="en">Photo Wall</span></h2>
-    <p class="section-sub reveal"><span class="zh">每个虚线框是一格素材位：丢进照片即可点亮。</span><span class="en">Each dashed frame is a slot: drop a photo in and it lights up.</span></p>
+    <p class="section-sub reveal"><span class="zh">先放一张高原湖畔，其余位置陆续补上；点开照片可看原图。</span><span class="en">An alpine lake to start with, more to come — click a photo for the full image.</span></p>
     <div class="photo-wall">
-      <div class="photo-slot reveal"><span class="ps-icon">[ + ]</span><span class="ps-label"><span class="zh">照片位 01</span><span class="en">photo 01</span></span></div>
+      <a class="photo-slot photo-slot--filled reveal" href="assets/life-lake.jpg" target="_blank" rel="noopener" aria-label="查看高原湖畔照片原图">
+        <picture>
+          <source srcset="assets/life-lake.webp" type="image/webp">
+          <img src="assets/life-lake.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
+        </picture>
+        <span class="ps-caption"><span class="zh">高原湖畔</span><span class="en">Alpine Lake</span></span>
+        <span class="ps-open" aria-hidden="true">↗</span>
+      </a>
       <div class="photo-slot reveal"><span class="ps-icon">[ + ]</span><span class="ps-label"><span class="zh">照片位 02</span><span class="en">photo 02</span></span></div>
       <div class="photo-slot reveal"><span class="ps-icon">[ + ]</span><span class="ps-label"><span class="zh">照片位 03</span><span class="en">photo 03</span></span></div>
       <div class="photo-slot reveal"><span class="ps-icon">[ + ]</span><span class="ps-label"><span class="zh">照片位 04</span><span class="en">photo 04</span></span></div>
