@@ -6,8 +6,15 @@
 <title>huaichuanli · 生活 LOG · SIGNAL DEEP</title>
 <meta name="description" content="huaichuanli 的兴趣与生活：照片墙、影像记录与时间线 · 素材整理中">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#EAF4FB">
+<meta name="theme-color" content="#EAF4FB" id="themeColor">
 <link rel="stylesheet" href="css/style.css">
+<script>
+document.documentElement.classList.add("js");
+/* 兜底：若动画脚本 3s 内未就绪，解除隐藏，保证内容始终可达 */
+setTimeout(function () {
+  if (!window.__SIGNAL_DEEP_READY) document.documentElement.classList.remove("js");
+}, 3000);
+</script>
 <style>
 /* ---- life.html 专属 ---- */
 .log-banner { font-family: var(--mono); color: var(--teal); font-size: 13px; line-height: 1.6; white-space: pre; overflow-x: auto; padding: 26px 0 6px; }
@@ -69,22 +76,23 @@ body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
 </style>
 </head>
 <body class="sea">
-<script>try{if(localStorage.getItem("lemon-sky")==="abyss")document.body.classList.add("abyss");}catch(e){}</script>
+<script>try{if(localStorage.getItem("lemon-sky")==="abyss"){document.body.classList.add("abyss");var m=document.getElementById("themeColor");if(m)m.content="#081624";}}catch(e){}</script>
 
+<a class="skip-link" href="#main"><span class="zh">跳到主内容</span><span class="en">Skip to content</span></a>
 <div class="sea-bg" aria-hidden="true"></div>
 <div class="depth-meter" id="depthMeter" aria-hidden="true"><span class="dm-line"></span><span class="dm-val" id="depthVal">0 m</span><span class="dm-line"></span></div>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">huaichuanli<span class="nav-dot"></span></a>
-    <button class="nav-burger" id="navBurger" aria-label="菜单"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="navBurger" aria-label="菜单" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html"><span class="zh">← 返回主页</span><span class="en">← Back</span></a></li>
       <li><a href="#photos"><span class="zh">照片墙</span><span class="en">photos</span></a></li>
       <li><a href="#videos"><span class="zh">影像</span><span class="en">videos</span></a></li>
       <li><a href="#timeline"><span class="zh">时间线</span><span class="en">timeline</span></a></li>
-      <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button></li>
-      <li><button class="sky-toggle" id="skyToggle" aria-label="切换星图模式">☾</button></li>
+      <li><button class="lang-toggle" id="langToggle" aria-label="Switch to English" aria-pressed="false">EN</button></li>
+      <li><button class="sky-toggle" id="skyToggle" aria-label="切换深空星图" aria-pressed="false">☾</button></li>
     </ul>
   </div>
 </nav>
@@ -99,7 +107,7 @@ body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 <section class="section" id="photos">
   <div class="container">
@@ -171,9 +179,9 @@ body.abyss .video-slot .vs-play { background: rgba(255, 255, 255, .08); }
   <p class="footer-meta">© 2026 huaichuanli · <a href="index.html" style="color: var(--blue);"><span class="zh">← 返回深海</span><span class="en">← back to the deep</span></a></p>
 </footer>
 
-<script src="js/creatures.js"></script>
-<script src="js/cosmos.js"></script>
-<script src="js/sea.js"></script>
-<script src="js/main.js"></script>
+<script defer src="js/creatures.js"></script>
+<script defer src="js/cosmos.js"></script>
+<script defer src="js/sea.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>

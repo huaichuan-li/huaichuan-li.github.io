@@ -10,19 +10,27 @@
 <meta property="og:title" content="huaichuanli · SIGNAL DEEP">
 <meta property="og:description" content="SJTU · Multimodal LLM × Embodied Intelligence × Founder of Yantu Messenger">
 <meta property="og:image" content="https://huaichuan-li.github.io/assets/portrait.jpg">
-<meta name="theme-color" content="#EAF4FB">
+<meta name="theme-color" content="#EAF4FB" id="themeColor">
 <link rel="stylesheet" href="css/style.css">
+<script>
+document.documentElement.classList.add("js");
+/* 兜底：若动画脚本 3s 内未就绪，解除隐藏，保证内容始终可达 */
+setTimeout(function () {
+  if (!window.__SIGNAL_DEEP_READY) document.documentElement.classList.remove("js");
+}, 3000);
+</script>
 </head>
 <body class="sea">
-<script>try{if(localStorage.getItem("lemon-sky")==="abyss")document.body.classList.add("abyss");}catch(e){}</script>
+<script>try{if(localStorage.getItem("lemon-sky")==="abyss"){document.body.classList.add("abyss");var m=document.getElementById("themeColor");if(m)m.content="#081624";}}catch(e){}</script>
 
+<a class="skip-link" href="#main"><span class="zh">跳到主内容</span><span class="en">Skip to content</span></a>
 <div class="sea-bg" aria-hidden="true"></div>
 <div class="depth-meter" id="depthMeter" aria-hidden="true"><span class="dm-line"></span><span class="dm-val" id="depthVal">0 m</span><span class="dm-line"></span></div>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">huaichuanli<span class="nav-dot"></span></a>
-    <button class="nav-burger" id="navBurger" aria-label="菜单"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="navBurger" aria-label="菜单" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about"><span class="zh">关于</span><span class="en">about</span></a></li>
       <li><a href="#research"><span class="zh">研究</span><span class="en">research</span></a></li>
@@ -31,8 +39,8 @@
       <li><a href="#honors"><span class="zh">荣誉</span><span class="en">honors</span></a></li>
       <li><a href="life.html"><span class="zh">生活 ↗</span><span class="en">life ↗</span></a></li>
       <li><a href="#contact"><span class="zh">联系</span><span class="en">contact</span></a></li>
-      <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button></li>
-      <li><button class="sky-toggle" id="skyToggle" aria-label="切换星图模式">☾</button></li>
+      <li><button class="lang-toggle" id="langToggle" aria-label="Switch to English" aria-pressed="false">EN</button></li>
+      <li><button class="sky-toggle" id="skyToggle" aria-label="切换深空星图" aria-pressed="false">☾</button></li>
     </ul>
   </div>
 </nav>
@@ -55,7 +63,10 @@
       </div>
     </div>
     <figure class="hero-portrait reveal">
-      <img src="assets/portrait.jpg" alt="huaichuanli" class="portrait-img" width="330" height="452" fetchpriority="high" decoding="async">
+      <picture>
+        <source srcset="assets/portrait.webp" type="image/webp">
+        <img src="assets/portrait.jpg" alt="huaichuanli 的户外肖像" class="portrait-img" width="330" height="452" fetchpriority="high" decoding="async">
+      </picture>
       <figcaption class="portrait-caption reveal">Log 01 — <span class="zh">观察者，水面之上</span><span class="en">The observer, above the surface</span></figcaption>
     </figure>
   </div>
@@ -63,7 +74,7 @@
   <div class="star-legend" aria-hidden="true">✦ <b id="starCount">—</b> STARS · ABYSSAL CONSTELLATION</div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 <section class="section" id="about">
   <div class="container">
@@ -160,10 +171,10 @@
     <p class="section-label reveal">Depth 006 · <span class="zh">荣誉</span><span class="en">HONORS</span></p>
     <h2 class="section-title reveal"><span class="zh">海床上的沉积物 · 代表性竞赛与荣誉</span><span class="en">Sediments on the Seafloor · Selected Awards</span></h2>
     <div class="filter-bar reveal" id="awardFilter">
-      <button class="filter-btn active" data-filter="all"><span class="zh">全部</span><span class="en">All</span></button>
-      <button class="filter-btn" data-filter="national"><span class="zh">国家级</span><span class="en">National</span></button>
-      <button class="filter-btn" data-filter="provincial"><span class="zh">省部级</span><span class="en">Provincial</span></button>
-      <button class="filter-btn" data-filter="university"><span class="zh">校级</span><span class="en">University</span></button>
+      <button class="filter-btn active" data-filter="all" aria-pressed="true"><span class="zh">全部</span><span class="en">All</span></button>
+      <button class="filter-btn" data-filter="national" aria-pressed="false"><span class="zh">国家级</span><span class="en">National</span></button>
+      <button class="filter-btn" data-filter="provincial" aria-pressed="false"><span class="zh">省部级</span><span class="en">Provincial</span></button>
+      <button class="filter-btn" data-filter="university" aria-pressed="false"><span class="zh">校级</span><span class="en">University</span></button>
     </div>
     <div class="awards-grid" id="awardsGrid">
       <div class="award award-national reveal"><h4><span class="zh">国家奖学金</span><span class="en">National Scholarship</span></h4><p>2023–2024 · <span class="zh">全校 2‰</span><span class="en">Top 0.2%</span></p></div>
@@ -204,9 +215,9 @@
   <p class="footer-meta">© 2026 huaichuanli · <span class="zh">上海交通大学</span><span class="en">Shanghai Jiao Tong University</span> · <span class="zh">深海信号站</span><span class="en">SIGNAL DEEP</span></p>
 </footer>
 
-<script src="js/creatures.js"></script>
-<script src="js/cosmos.js"></script>
-<script src="js/sea.js"></script>
-<script src="js/main.js"></script>
+<script defer src="js/creatures.js"></script>
+<script defer src="js/cosmos.js"></script>
+<script defer src="js/sea.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>

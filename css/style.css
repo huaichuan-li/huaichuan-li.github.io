@@ -8,7 +8,7 @@
   --mint: #3E8FC7;          /* 次蓝 */
   --foam: #0E2C42;          /* 标题墨蓝 */
   --ink: #24485F;           /* 正文 */
-  --muted: rgba(36, 72, 95, .62);
+  --muted: rgba(36, 72, 95, .80);   /* 5.00:1 on #E4F1FA · WCAG AA */
   --line: rgba(44, 125, 191, .20);
   --line-strong: rgba(44, 125, 191, .42);
   --amber: #D97B2E;         /* 暖橙点缀 */
@@ -18,6 +18,22 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* 键盘焦点：AA 2.4.7，仅键盘操作显示，不干扰鼠标点击 */
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* 跳转到主内容：AA 2.4.1 */
+.skip-link {
+  position: fixed; left: 14px; top: -80px; z-index: 200;
+  background: var(--blue); color: #fff; font-family: var(--mono); font-size: 13px;
+  padding: 10px 18px; border-radius: 0 0 8px 8px; transition: top .2s ease;
+}
+.skip-link:focus { top: 0; }
+/* skip link 落入的容器本身不需要焦点环，避免整页出现巨型描边 */
+main:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) { .skip-link { transition: none; } }
 body {
   font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
   background: var(--bg-base);
@@ -205,6 +221,7 @@ nav, header, main, footer { position: relative; z-index: 1; }
 .btn-ghost:hover { background: rgba(44, 125, 191, .10); }
 
 .hero-portrait { flex: 0 0 auto; text-align: center; position: relative; }
+.hero-portrait picture { display: block; }
 .hero-portrait::before {
   content: ""; position: absolute; left: -14px; top: -14px; right: 16px; bottom: 40px;
   border: 1px solid var(--line-strong); border-radius: 14px; z-index: 0;
@@ -381,18 +398,23 @@ nav, header, main, footer { position: relative; z-index: 1; }
 .footer-quote { font-size: 17px; color: var(--blue); letter-spacing: 4px; margin-bottom: 12px; }
 .footer-meta { font-family: var(--mono); font-size: 12.5px; color: var(--muted); letter-spacing: .5px; }
 
-/* ---- 入场动画 ---- */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* ---- 入场动画（仅在 JS 可用时启用，保证无 JS / 脚本报错时内容仍可见） ---- */
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-scroll i, .nav-dot, .hn-cursor { animation: none; }
-  .hn-ch { animation: none; opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
   html { scroll-behavior: auto; }
 }
 
 /* ---- 响应式 ---- */
 @media (max-width: 900px) {
+  /* iOS Safari 上 fixed 背景滚动会重绘掉帧，改为随内容滚动 */
+  body.sea, body.abyss.sea { background-attachment: scroll; }
   .hero-grid { flex-direction: column-reverse; text-align: center; gap: 38px; }
   .hero-label, .hero-cta { justify-content: center; }
   .hero-name { justify-content: center; }
