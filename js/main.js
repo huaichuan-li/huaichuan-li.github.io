@@ -158,11 +158,16 @@
 
   // ---- 奖项筛选 ----
   var filterBtns = document.querySelectorAll(".filter-btn");
-  var awards = document.querySelectorAll("#awardsGrid > div");
+  var awards = document.querySelectorAll("#awardsGrid .award");
+  var yearGroups = document.querySelectorAll("#awardsGrid .tl-year-group");
   function applyFilter(cat) {
     awards.forEach(function (a) {
       var match = cat === "all" || a.classList.contains("award-" + cat);
       a.classList.toggle("hidden", !match);
+    });
+    /* 该年份已无可见条目时，整段年份一并收起 */
+    yearGroups.forEach(function (g) {
+      g.classList.toggle("hidden", !g.querySelector(".award:not(.hidden)"));
     });
   }
   filterBtns.forEach(function (btn) {

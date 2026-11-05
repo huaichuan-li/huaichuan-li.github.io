@@ -361,7 +361,40 @@ nav, header, main, footer { position: relative; z-index: 1; }
 }
 .filter-btn:hover { color: var(--blue); background: rgba(255, 255, 255, .85); }
 .filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; }
-.awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+/* ---- 竞赛荣誉：按年份展开的时间轴 ---- */
+.awards-timeline { position: relative; margin-top: 6px; }
+.awards-timeline::before {
+  content: ""; position: absolute; left: 96px; top: 12px; bottom: 12px;
+  width: 1px; background: var(--line-strong);
+}
+.tl-year-group {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0 34px; position: relative; margin-bottom: 30px;
+}
+.tl-year-group:last-child { margin-bottom: 0; }
+.tl-year-group.hidden { display: none; }
+.tl-year-label {
+  position: relative; margin: 0; padding-right: 16px; text-align: right;
+  font-family: var(--mono); font-size: 19px; font-weight: 700;
+  line-height: 1.4; letter-spacing: 1px; color: var(--amber);
+}
+.tl-year-label::after {
+  content: ""; position: absolute; right: -5px; top: 10px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--amber); box-shadow: 0 0 0 5px rgba(217, 123, 46, .16);
+}
+.tl-year-items { min-width: 0; }
+.awards-timeline .award { position: relative; margin-bottom: 10px; }
+.awards-timeline .award:last-child { margin-bottom: 0; }
+.awards-timeline .award::before {
+  content: ""; position: absolute; left: -38px; top: 21px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--teal); box-shadow: 0 0 0 4px rgba(44, 125, 191, .14);
+}
+.awards-timeline .award-national::before {
+  background: var(--amber); box-shadow: 0 0 0 4px rgba(217, 123, 46, .16);
+}
+.awards-timeline .award:hover { transform: translateX(3px); }
 .award {
   background: var(--card); border: 1px solid var(--line);
   border-left: 4px solid var(--teal); border-radius: 10px;
@@ -414,7 +447,6 @@ nav, header, main, footer { position: relative; z-index: 1; }
   .hero-name { justify-content: center; }
   .hero-tagline { margin-left: auto; margin-right: auto; }
   .about-grid, .route-grid, .contact-grid { grid-template-columns: 1fr; }
-  .awards-grid { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 84px 0; }
   .log-time { margin-left: 0; }
   .log-head { justify-content: center; }
@@ -429,7 +461,11 @@ nav, header, main, footer { position: relative; z-index: 1; }
     gap: 26px; transition: right .3s; margin: 0; box-shadow: -8px 0 30px rgba(27, 107, 168, .16);
   }
   .nav-links.open { right: 0; }
-  .awards-grid { grid-template-columns: 1fr; }
+  .awards-timeline::before { left: 52px; }
+  .tl-year-group { grid-template-columns: 52px minmax(0, 1fr); gap: 0 20px; margin-bottom: 24px; }
+  .tl-year-label { font-size: 15px; padding-right: 10px; }
+  .awards-timeline .award::before { left: -24px; top: 19px; }
+  .awards-timeline .award { padding: 13px 14px; }
   .portrait-img { width: 210px; }
   .hero { padding-top: 96px; padding-bottom: 76px; }
   .hero-scroll { margin-top: 34px; }
