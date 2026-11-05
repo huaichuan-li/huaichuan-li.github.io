@@ -1,4 +1,4 @@
-// ============ SIGNAL DEEP · 交互脚本 ============
+// ============ 个人主页 · 交互脚本 ============
 (function () {
   "use strict";
 
@@ -32,7 +32,7 @@
   // ---- 语言切换 ----
   var langToggle = document.getElementById("langToggle");
   function afterLangChange() {
-    // 中英文字数差异会改变页面高度，通知深海引擎重算分段坐标
+    // 中英文字数差异会改变页面高度，通知背景动画重算分段坐标
     setTimeout(function () {
       if (typeof window.SEA_RELAYOUT === "function") window.SEA_RELAYOUT();
     }, 120);
@@ -59,15 +59,15 @@
     } catch (e) {}
   }
 
-  // ---- 浅海 / 深空星图切换 ----
+  // ---- 浅色 / 深色背景切换 ----
   var skyToggle = document.getElementById("skyToggle");
   function paintSkyBtn() {
     if (!skyToggle) return;
     var abyss = body.classList.contains("abyss");
     skyToggle.textContent = abyss ? "☀" : "☾";
     var tip = abyss
-      ? (isEn() ? "Back to shallow water" : "切回浅海")
-      : (isEn() ? "Toggle deep-space starfield" : "切换深空星图");
+      ? (isEn() ? "Switch to light theme" : "切换浅色模式")
+      : (isEn() ? "Switch to dark theme" : "切换深色模式");
     skyToggle.title = tip;
     skyToggle.setAttribute("aria-label", tip);
     skyToggle.setAttribute("aria-pressed", abyss ? "true" : "false");
