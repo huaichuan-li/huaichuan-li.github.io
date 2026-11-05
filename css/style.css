@@ -20,7 +20,7 @@
 html { scroll-behavior: smooth; }
 /* 键盘焦点：AA 2.4.7，仅键盘操作显示，不干扰鼠标点击 */
 :focus-visible {
-  outline: 3px solid var(--amber);
+  outline: 3px solid var(--blue);   /* 4.92:1 浅海 / 高对比深空，满足非文本 3:1 */
   outline-offset: 3px;
   border-radius: 3px;
 }
